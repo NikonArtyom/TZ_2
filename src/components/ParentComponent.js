@@ -29,7 +29,7 @@ function ParentComponent() {
     <div className='parent'>
 
       <div className='ClassLifecycleComponent'>
-        {stateClass && <ClassLifecycleComponent />}
+        {stateClass && <ClassLifecycleComponentm />}
         <button onClick={unMountComponentClass}>Удалить или показать компоненту</button>
       </div>
 
