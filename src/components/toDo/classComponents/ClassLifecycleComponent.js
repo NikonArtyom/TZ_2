@@ -12,7 +12,7 @@ class ClassLifecycleComponent extends React.Component {
         try {
             const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
             const result = await response.json()
-            console.log(result);
+            console.log('componentDidMountClass ', result);
         } catch (err) {
             console.log(err);
         }
@@ -23,7 +23,7 @@ class ClassLifecycleComponent extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.state.count)
+        console.log('componentDidUpdateClass', this.state.count)
     }
 
     shouldComponentUpdate(nextProps, nextState) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EvenOrOdd from "./EvenOrOdd";
 
 const FunctionLifecycleComponent = () => {
 
@@ -9,7 +10,7 @@ const FunctionLifecycleComponent = () => {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
                 const result = await response.json()
-                console.log(result);
+                console.log('componentDidMountFn ', result);
             } catch (err) {
                 console.log(err);
             }
@@ -17,21 +18,19 @@ const FunctionLifecycleComponent = () => {
         getRequest()
     }, [])
 
-    useEffect(() => console.log(count), [count])
+    useEffect(() => console.log('componentDidUpdateFn ', count), [count])
 
     useEffect(() => {
         return () => console.log('componentWillUnmountFn');
     }, [])
 
-
-    const increment = () => setCount(count + 1);
-
     return (
         <div>
-            <p>Счетчик: {count}</p>
-            <button onClick={increment}>Увеличить на 1</button>
+            <EvenOrOdd count={count} />
+            <button onClick={setCount(count + 1)}>Увеличить на 1</button>
         </div>
     )
 }
+
 
 export default FunctionLifecycleComponent;

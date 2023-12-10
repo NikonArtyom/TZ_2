@@ -7,23 +7,13 @@ function ParentComponent() {
 
   const [stateClass, setStateClass] = useState(true)
 
-  const unMountComponentClass = () => {
-    if (stateClass) {
-      return setStateClass(false)
-    } else {
-      return setStateClass(true)
-    }
-  }
+  const unMountComponentClass = () => stateClass ? setStateClass(!stateClass) : setStateClass(stateClass)
+  //типо где было true-false исправить на stateClass-!stateClass????
+  //по-другому никак в голову не лезет
 
   const [stateFn, setStateFn] = useState(true)
 
-  const unMountComponentFn = () => {
-    if (stateFn) {
-      return setStateFn(false)
-    } else {
-      return setStateFn(true)
-    }
-  }
+  const unMountComponentFn = () => stateFn ? setStateFn(!stateFn) : setStateFn(stateFn)
 
   return (
     <div className='parent'>
