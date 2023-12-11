@@ -5,6 +5,8 @@ const FunctionLifecycleComponent = () => {
 
     const [count, setCount] = useState(0);
 
+    const increment = () => setCount(count + 1);
+
     useEffect(() => {
         async function getRequest() {
             try {
@@ -27,7 +29,7 @@ const FunctionLifecycleComponent = () => {
     return (
         <div>
             <EvenOrOdd count={count} />
-            <button onClick={setCount(count + 1)}>Увеличить на 1</button>
+            <button onClick={increment}>Увеличить на 1</button>
         </div>
     )
 }
